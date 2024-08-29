@@ -1,0 +1,43 @@
+# https://kubernetes.io/docs/concepts/services-networking/service/
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-app
+spec:
+  selector:
+    app: test-app
+  type: ClusterIP
+  ports:
+  - name: test-app
+    protocol: TCP
+    port: 4000
+    targetPort: 4000
+---
+# https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-app
+  labels:
+    app: test-app
+spec:
+  selector:
+    matchLabels:
+      app: test-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: test-app
+    spec:
+      containers:
+      - name: test-app
+        image: k3d-registry.localhost:4000/krismt/test_app:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 4000
+          name: test-app
+      restartPolicy: Always
+---
+
+

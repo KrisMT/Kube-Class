@@ -1,0 +1,5 @@
+gateway:
+  plugins:
+    configMaps:
+    - name: keycloak-introspection
+      pluginName: keycloak-introspection

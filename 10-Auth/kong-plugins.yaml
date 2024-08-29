@@ -1,0 +1,9 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: kong-oidc-introspection
+  namespace: kong
+config:
+  keycloak_introspection_url: "https://372a-49-231-19-209.ngrok-free.app/realms/test_app/protocol/openid-connect/token/introspect"   # <===== YOUR Introspection Endpoint
+  client_secret: "N0keSFiyAtsNXZzg4jR7N1LHEOQeUGFh" # <====== YOUR Slient Secret
+plugin: keycloak-introspection
