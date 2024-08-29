@@ -23,7 +23,7 @@ k3d cluster create demo \
 --registry-use k3d-registry.localhost:4000
 ```
 
-# Install Kong follow sheet 09-Auth
+# Install Kong follow sheet 09-Cert
 
 # Publish your computer to public with port 8080
 ```
